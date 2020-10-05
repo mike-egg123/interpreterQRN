@@ -236,10 +236,7 @@ void getsym(){
     }
 }
 int main(int argc, char *argv[]) {
-	//绝对路径（不懂相对路径怎么写。。。）
-	char pathName[200] = ".\\";
-    strcat(pathName, argv[1]);
-    fd = fopen(pathName, "r");
+    fd = fopen(argv[1], "r");
     while(!feof(fd)){
         getsym();
     }
