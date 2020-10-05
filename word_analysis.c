@@ -38,7 +38,7 @@ bool isSpace(){
 
 //判断当前字符是否为换行
 bool isNewline(){
-    if(nowChar == '\r\n'){
+    if(nowChar == '\n' || nowChar == '\r'){
         return true;
     }
     return false;
