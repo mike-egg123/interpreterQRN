@@ -1,4 +1,4 @@
 FROM openjdk:8
 WORKDIR /app/
 COPY ./* ./
-RUN javac program.java
+RUN javac WordAnalysis.java
