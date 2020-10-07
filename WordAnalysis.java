@@ -21,7 +21,7 @@ public class WordAnalysis {
         }
         accessFile.close();
     }
-    //´ÓÎÄ¼şÖĞ»ñÈ¡Ò»¸ö×Ö·û£¬·ÅÈënowCharÖĞ
+    //ä»æ–‡ä»¶ä¸­è·å–ä¸€ä¸ªå­—ç¬¦ï¼Œæ”¾å…¥nowCharä¸­
     public static void myGetchar() throws IOException {
         int tmp = accessFile.read();
         if(tmp == -1){
@@ -32,14 +32,14 @@ public class WordAnalysis {
             nowChar = (char)tmp;
         pos++;
     }
-    //Çå¿Õtoken
+    //æ¸…ç©ºtoken
     public static void clearToken(){
         tokenOff = 0;
         for(int i = 0;i < 50;i++){
             token[i] = 0;
         }
     }
-    //¼ÆËãtokenµÄ³¤¶È
+    //è®¡ç®—tokençš„é•¿åº¦
     public static int tokenLen(){
         int i;
         for(i = 0;i < 50;i++){
@@ -48,65 +48,65 @@ public class WordAnalysis {
         }
         return i;
     }
-    //ÅĞ¶Ïµ±Ç°×Ö·ûÊÇ·ñÎª¿Õ¸ñ
+    //åˆ¤æ–­å½“å‰å­—ç¬¦æ˜¯å¦ä¸ºç©ºæ ¼
     public static Boolean isSpace(){
         return nowChar == ' ';
     }
-    //ÅĞ¶Ïµ±Ç°×Ö·ûÊÇ·ñÎª»»ĞĞ
+    //åˆ¤æ–­å½“å‰å­—ç¬¦æ˜¯å¦ä¸ºæ¢è¡Œ
     public static Boolean isNewline(){
         return nowChar == '\n' || nowChar == '\r';
     }
-    //ÅĞ¶Ïµ±Ç°×Ö·ûÊÇ·ñÎªÖÆ±í·û
+    //åˆ¤æ–­å½“å‰å­—ç¬¦æ˜¯å¦ä¸ºåˆ¶è¡¨ç¬¦
     public static Boolean isTab(){
         return nowChar == '\t';
     }
-    //ÅĞ¶Ïµ±Ç°×Ö·ûÊÇ·ñÎª×ÖÄ¸
+    //åˆ¤æ–­å½“å‰å­—ç¬¦æ˜¯å¦ä¸ºå­—æ¯
     public static Boolean isLetter(){
         return (nowChar >= 'a' && nowChar <= 'z') || (nowChar >= 'A' && nowChar <= 'Z');
     }
-    //ÅĞ¶Ïµ±Ç°×Ö·ûÊÇ·ñÎªÊı×Ö
+    //åˆ¤æ–­å½“å‰å­—ç¬¦æ˜¯å¦ä¸ºæ•°å­—
     public static Boolean isDigit(){
         return (nowChar >= '0' && nowChar <= '9');
     }
-    //ÅĞ¶Ïµ±Ç°×Ö·ûÊÇ·ñÎªÃ°ºÅ
+    //åˆ¤æ–­å½“å‰å­—ç¬¦æ˜¯å¦ä¸ºå†’å·
     public static Boolean isColon(){
         return nowChar == ':';
     }
-    //ÅĞ¶Ïµ±Ç°×Ö·ûÊÇ·ñÎª¶ººÅ
+    //åˆ¤æ–­å½“å‰å­—ç¬¦æ˜¯å¦ä¸ºé€—å·
     public static Boolean isComma(){
         return nowChar == ',';
     }
-    //ÅĞ¶Ïµ±Ç°×Ö·ûÊÇ·ñÎªµÈºÅ
+    //åˆ¤æ–­å½“å‰å­—ç¬¦æ˜¯å¦ä¸ºç­‰å·
     public static Boolean isEqu(){
         return nowChar == '=';
     }
-    //ÅĞ¶Ïµ±Ç°×Ö·ûÊÇ·ñÎª¼ÓºÅ
+    //åˆ¤æ–­å½“å‰å­—ç¬¦æ˜¯å¦ä¸ºåŠ å·
     public static Boolean isPlus(){
         return nowChar == '+';
     }
-    //ÅĞ¶Ïµ±Ç°×Ö·ûÊÇ·ñÎªĞÇºÅ
+    //åˆ¤æ–­å½“å‰å­—ç¬¦æ˜¯å¦ä¸ºæ˜Ÿå·
     public static Boolean isStar(){
         return nowChar == '*';
     }
-    //ÅĞ¶Ïµ±Ç°×Ö·ûÊÇ·ñÎª×óÀ¨ºÅ
+    //åˆ¤æ–­å½“å‰å­—ç¬¦æ˜¯å¦ä¸ºå·¦æ‹¬å·
     public static Boolean isLpar(){
         return nowChar == '(';
     }
-    //ÅĞ¶Ïµ±Ç°×Ö·ûÊÇ·ñÎªÓÒÀ¨ºÅ
+    //åˆ¤æ–­å½“å‰å­—ç¬¦æ˜¯å¦ä¸ºå³æ‹¬å·
     public static Boolean isRpar(){
         return nowChar == ')';
     }
-    //½«µ±Ç°¶Áµ½µÄ×Ö·ûÆ´½Óµ½tokenºóÃæ
+    //å°†å½“å‰è¯»åˆ°çš„å­—ç¬¦æ‹¼æ¥åˆ°tokenåé¢
     public static void catToken(){
         token[tokenOff] = nowChar;
         tokenOff++;
     }
-    //ÎÄ¼şÖ¸Õë»ØÍËÒ»¸ñ
+    //æ–‡ä»¶æŒ‡é’ˆå›é€€ä¸€æ ¼
     public static void retract() throws IOException {
         pos--;
         accessFile.seek(pos);
     }
-    //ÅĞ¶ÏtokenÊÇ·ñÊÇ±£Áô×Ö
+    //åˆ¤æ–­tokenæ˜¯å¦æ˜¯ä¿ç•™å­—
     public static boolean reserver(){
         String tmp = new String(token,0,tokenLen());
         switch (tmp) {
@@ -132,17 +132,17 @@ public class WordAnalysis {
                 return false;
         }
     }
-    //½«tokenÖĞµÄ×Ö·û´®×ª»¯³ÉÊ®½øÖÆÊı×Ö²¢´æµ½numÖĞ
+    //å°†tokenä¸­çš„å­—ç¬¦ä¸²è½¬åŒ–æˆåè¿›åˆ¶æ•°å­—å¹¶å­˜åˆ°numä¸­
     public static void transNum(){
         String tmp = new String(token,0,tokenLen());
         num = Integer.parseInt(tmp);
     }
-    //´íÎó´¦Àí
+    //é”™è¯¯å¤„ç†
     public static void error(){
         System.out.println("Unknown");
         System.exit(0);
     }
-    //Ö÷·ÖÎöº¯Êı
+    //ä¸»åˆ†æå‡½æ•°
     public static void getsym() throws IOException {
         clearToken();
         myGetchar();
