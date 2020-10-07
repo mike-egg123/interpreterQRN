@@ -3,15 +3,21 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 public class WordAnalysis {
+    //文件类，引用打开的测试文件
     public static File file;
+    //随机读写文件类，可以用seek()自定义文件读写指针的位置
     public static RandomAccessFile accessFile;
-
-
+    //当前读到的字符
     public static char nowChar;
+    //存放token中的整数值
     public static int num;
+    //用于定位token的最后一个字符，便于和nowChar拼接
     public static int tokenOff;
+    //指示文件读写指针的位置
     public static int pos;
+    //指示文件是否读到结尾
     public static Boolean isFileEnd = false;
+    //存放当前单词
     public static char[] token = new char[50];
     public static void main(String[] args) throws IOException {
         file = new File(args[0]);
