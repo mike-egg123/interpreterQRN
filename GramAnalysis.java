@@ -57,8 +57,10 @@ public class GramAnalysis {
             case '#':
                 return 5;
             default:
-                return 6;
+                System.out.println("E");
+                System.exit(0);
         }
+        return 6;
     }
     public static int makeSureTheTop(){
         int tmp = top;
